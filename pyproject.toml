@@ -1,0 +1,57 @@
+# This is a comment.
+# syntax-documentation:
+#  - https://python-poetry.org/docs/pyproject
+#  - https://flit.readthedocs.io/en/latest/pyproject_toml.html
+#
+# NOTE: you have to use single-quoted strings in TOML for regular expressions.
+# It's the equivalent of r-strings in Python.  Multiline strings are treated as
+# verbose regular expressions by Black.  Use [ ] to denote a significant space
+# character.
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target_version = ["py310"]
+include = '\.py$'          # regex -> single-quotes
+
+[tool.poetry]
+name = "usercustomize-entrypoints"
+version = "0.0.0"
+description = ""
+authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
+readme = "readme.md"
+homepage = "https://github.com/libranet/usercustomize-entrypoints"
+repository = "https://github.com/libranet/usercustomize-entrypoints"
+packages = [{include = "usercustomize", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+
+[tool.poetry-dynamic-versioning.substitution]
+files = ["src/*/__init__.py"]
+
+[tool.vendoring]
+destination = "src/usercustomize/_vendor/"
+namespace = "usercustomize._vendor"
+protected-files = ["__init__.py", "README.rst", "vendor.txt"]
+requirements = "src/usercustomize/_vendor/vendor.txt"
+
+[tool.vendoring.transformations]
+drop = [
+    # contains unnecessary scripts
+    "bin/",
+]
+
+[tool.vendoring.typing-stubs]
+six = []
+distro = []
+
+[tool.vendoring.license.directories]
+
+[tool.vendoring.license.fallback-urls]
