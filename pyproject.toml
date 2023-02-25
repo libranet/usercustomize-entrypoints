@@ -12,10 +12,12 @@
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+
 [tool.black]
 line-length = 120
 target_version = ["py310"]
 include = '\.py$'          # regex -> single-quotes
+
 
 [tool.poetry]
 name = "usercustomize-entrypoints"
@@ -33,17 +35,23 @@ python = ">=3.8"
 [tool.poetry.group.dev.dependencies]
 ipython = "^8.10.0"
 
+
 [tool.poetry-dynamic-versioning]
 enable = true
 
 [tool.poetry-dynamic-versioning.substitution]
 files = ["src/*/__init__.py"]
 
+
 [tool.vendoring]
 destination = "src/usercustomize/_vendor/"
 namespace = "usercustomize._vendor"
 protected-files = ["__init__.py", "README.rst", "vendor.txt"]
 requirements = "src/usercustomize/_vendor/vendor.txt"
+
+[tool.vendoring.license.directories]
+
+[tool.vendoring.license.fallback-urls]
 
 [tool.vendoring.transformations]
 drop = [
@@ -54,7 +62,3 @@ drop = [
 [tool.vendoring.typing-stubs]
 six = []
 distro = []
-
-[tool.vendoring.license.directories]
-
-[tool.vendoring.license.fallback-urls]
