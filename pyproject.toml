@@ -25,10 +25,13 @@ authors = ["Wouter Vanden Hove <wouter@libranet.eu>"]
 readme = "readme.md"
 homepage = "https://github.com/libranet/usercustomize-entrypoints"
 repository = "https://github.com/libranet/usercustomize-entrypoints"
-packages = [{include = "usercustomize", from = "src"}]
+packages = [{ include = "usercustomize", from = "src" }]
 
 [tool.poetry.dependencies]
-python = ">=3.7"
+python = ">=3.8"
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.10.0"
 
 [tool.poetry-dynamic-versioning]
 enable = true

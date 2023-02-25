@@ -3,7 +3,7 @@ import re
 import abc
 import csv
 import sys
-from sitecustomize._vendor import zipp
+from usercustomize._vendor import zipp
 import email
 import pathlib
 import operator
