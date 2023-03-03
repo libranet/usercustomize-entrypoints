@@ -30,5 +30,7 @@
 # exclude generated packages
 /dist/
 
-# execlude byte-compiled files
+# exclude var-dir with cache-files and other generated files
+/var/
+# exclude byte-compiled files
 __pycache__/

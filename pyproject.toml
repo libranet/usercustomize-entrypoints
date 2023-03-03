@@ -43,6 +43,12 @@ enable = true
 files = ["src/*/__init__.py"]
 
 
+[tool.pytest.ini_options]
+addopts = "--junit-xml='var/coverage/pytest.xml'"
+cache_dir = "var/cache/pytest"
+testpaths = ["tests"]
+
+
 [tool.vendoring]
 destination = "src/usercustomize/_vendor/"
 namespace = "usercustomize._vendor"
